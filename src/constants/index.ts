@@ -1,5 +1,5 @@
 import { facebook, instagram, shieldTick, support, truckFast, twitter } from "../assets/icons";
-import { conv } from "../assets/images";
+import { conv,tax1,tax2 } from "../assets/images";
 
 export const navLinks = [
     { href: "#home", label: "דף בית" },
@@ -8,18 +8,18 @@ export const navLinks = [
     { href: "#contact-us", label: "צור קשר" },
 ];
 
-export const shoes = [
+export const reviews = [
     {
         thumbnail: conv,
-        bigShoe: conv,
+        bigReview: conv,
     },
     {
-        thumbnail: conv,
-        bigShoe: conv,
+        thumbnail: tax1,
+        bigReview: tax1,
     },
     {
-        thumbnail: conv,
-        bigShoe: conv,
+        thumbnail: tax2,
+        bigReview: tax2,
     },
 ];
 
@@ -69,20 +69,20 @@ export const services = [
     },
 ];
 
-export const reviews = [
-    {
-        imgURL: conv,
-        customerName: 'Morich Brown',
-        rating: 4.5,
-        feedback: "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!"
-    },
-    {
-        imgURL: conv,
-        customerName: 'Lota Mongeskar',
-        rating: 4.5,
-        feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
-    }
-];
+// export const reviews = [
+//     {
+//         imgURL: conv,
+//         customerName: 'Morich Brown',
+//         rating: 4.5,
+//         feedback: "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!"
+//     },
+//     {
+//         imgURL: conv,
+//         customerName: 'Lota Mongeskar',
+//         rating: 4.5,
+//         feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
+//     }
+// ];
 
 
 export const footerLinks = [

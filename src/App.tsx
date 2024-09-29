@@ -5,10 +5,9 @@ import Welcome from "./sections/welcome";
 import Nav from "./components/Nav"
 
 const App = () => (
-  <main className="relative">
-      <Nav/>
-    <section className="xl:padding-1 
-    wide:padding-r padding-b">
+  <main className='relative flex-col'>
+  <Nav />
+    <section className='xl:padding-l wide:padding-r padding-b'>
       <Welcome/>
     </section>
     <section className="padding">
