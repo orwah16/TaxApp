@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Button from "../components/Button";
 import  arrowRight  from "../assets/icons/arrow-right.svg";
-import { statistics, reviews } from "../constants"
+import { statistics } from "../constants"
 import {tax1} from "../assets/images"
-import ReviewCard from "../components/ReviewCard";
 
 const welcome = () => {
   const [bigReviewImg, setBigReviewImg] = useState(tax1);
@@ -14,6 +13,16 @@ const welcome = () => {
       className="w-full flex xl:flex-row flex-col 
       min-h-screen justify-center max-container"
       >
+      <div className="relative flex flex-1 justify-center items-center sm:mt-20 xl:min-h-screen max-xl:py-40
+       bg-center">
+        <img
+          src={bigReviewImg}
+          width={800}
+          height={600}
+          className="object-contain relative z-10"
+        />
+        
+      </div>
       <div className="relative  z-5 xl:w-2/5 flex flex-col 
       justify-center items-end w-full max-xl:padding-x pt-28">
         <p className="font-semibold text-2xl font-montserrat text-blue-600">השירותים שלנו</p>
@@ -35,26 +44,7 @@ const welcome = () => {
           ))}
         </div>
       </div>
-      <div className="relative flex-1 flex-col justify-center items-center sm:mt-20 xl:min-h-screen max-xl:py-40
-       bg-primary bg-hero bg-cover bg-center">
-        <img
-          src={bigReviewImg}
-          width={800}
-          height={600}
-          className="object-contain relative z-10"
-        />
-        <div className="flex sm:gap-6 gap-4 -bottom-[5%] sm:left-[10%] max-sm:px-6">
-          {reviews.map((review,index) => (
-            <div key={index}>
-              <ReviewCard
-               thumbnail={review.thumbnail}
-               changeBigReviewImage={(Areview) => setBigReviewImg(Areview)}
-               bigReviewImg={bigReviewImg}
-               />
-            </div>
-          ))}
-        </div>
-      </div>
+
     </section>
   )
 }

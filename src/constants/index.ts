@@ -9,10 +9,10 @@ export const navLinks = [
 ];
 
 export const reviews = [
-    {
-        thumbnail: conv,
-        bigReview: conv,
-    },
+    // {
+    //     thumbnail: conv,
+    //     bigReview: conv,
+    // },
     {
         thumbnail: tax1,
         bigReview: tax1,
