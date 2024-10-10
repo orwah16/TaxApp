@@ -3,7 +3,7 @@ function userInfo() {
   return (
     <section className="flex justify-center">
       <div className="flex-col">
-      <h1 className="flex justify-center my-10 mx-0 text-4xl text-blue-600 font-palanquin max-sm:text-[72px]
+      <h1 className="flex justify-center my-10 mx-0 text-4xl text-black font-palanquin max-sm:text-[72px]
         max-sm:leading-[82] font-bold">
           <span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">
             תשאירו פרטים ונחזור אליכם

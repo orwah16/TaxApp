@@ -8,8 +8,7 @@ const customerFeedback = () => {
   return (
     <section>
     <div className="flex-col">
-      <div className="justify-center items-center sm:mt-20 xl:min-h-screen max-xl:py-40
-       bg-hero bg-cover bg-center">
+      <div className="justify-center items-center sm:mt-20 xl:min-h-screen max-xl:py-40">
         <div className="relative flex justify-center items-center h-full">
           <img
             src={bigReviewImg}

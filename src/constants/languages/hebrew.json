@@ -1,0 +1,23 @@
+{ 
+    "navLinks": [
+        { "href": "#home", "label": "דף בית" },
+        { "href": "#leave-info", "label": "השאר פרטים" },
+        { "href": "#about-us", "label": "עלינו" },
+        { "href": "#products", "label": "שירותים" },
+        { "href": "#contact-us", "label": "צור קשר" }
+    ],
+    "statistics": [
+        { "value": "30+", "label": "שנות נסיון" },
+        { "value": "100+", "label": "לקוחות" }
+    ],
+
+        "first_title": "השירותים שלנו",
+        "big_title": "שירות החזרי המס שלנו",
+        "second_title": "נשמח לעזור",
+
+        
+        "leave_info": "תשאירו פרטים ונחזור אליכם",
+        "name": "שם פרטי",
+        "last_name": "שם משפחה",
+        "mobile": "טלפון"  
+}

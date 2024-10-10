@@ -1,6 +1,6 @@
 import CustomerFeedback from "./sections/customerFeedback";
 import UserInfo from "./sections/userInfo";
-import Footer from "./sections/footer";
+import Services from "./sections/services";
 import Welcome from "./sections/welcome";
 import Contact from "./sections/contact";
 import Nav from "./components/Nav"
@@ -8,22 +8,22 @@ import Nav from "./components/Nav"
 const App = () => (
   <main className='relative flex-col'>
   <Nav />
-    <section className='xl:padding-l wide:padding-r padding-b'>
+    <section id="home" className='xl:padding-l wide:padding-r padding-b'>
       <Welcome/>
     </section>
     <section className="bg-pale-blue padding">
     <CustomerFeedback/>
     </section>
-    <section className="padding-x sm:py-32 w-full">
+    <section id="leave-info" className="padding-x sm:py-32 w-full">
       <UserInfo/>
     </section>
     <section className="bg-pale-blue padding">
       
     </section>
-    <section id="products" className="bg-white padding-x padding-t pb-8">
-      <Footer/>
+    <section id="services" className="bg-white padding-x padding-t pb-8">
+      <Services/>
     </section>
-    <section className="bg-pale-blue padding">
+    <section id="contact-us" className="bg-pale-blue padding">
       <Contact/>
     </section>
   </main>

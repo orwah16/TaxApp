@@ -1,0 +1,26 @@
+{ 
+    "navLinks": [
+        { "href": "#home", "label": "صفحة البيت" },
+        { "href": "#leave-info", "label": "اترك تفاصيلك" },
+        { "href": "#about-us", "label": "عنا"  },
+        { "href": "#products", "label": "خدمات" },
+        { "href": "#contact-us", "label": "تواصل معنا" }
+    ],
+
+
+    "statistics": [
+        { "value": "30+", "label": "سنوات تجربة" },
+        { "value": "100+", "label": "عملاء" }
+    ],
+
+        "first_title": "الخدمات التي نوفرها",
+        "big_title": "خدمة العائدات الضريبية",
+        "second_title": "يسعدنا مساعدتكم",
+
+
+        "leave_info": "اترك تفاصيلك لنتواصل معك",
+        "name": "الاسم",
+        "last_name": "العائلة",
+        "mobile": "رقم الهاتف"  
+
+}
