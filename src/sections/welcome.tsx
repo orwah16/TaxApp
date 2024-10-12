@@ -6,9 +6,16 @@ import {tax1} from "../assets/images"
 import {FormattedMessage} from "react-intl";
 import { useLocale } from '../LocaleContext';
 
+interface LocaleContextProps {
+  locale: string;
+  messages: any;
+  switchLocale: (locale: string) => void;
+}
+
 const welcome = () => {
   const [bigReviewImg, setBigReviewImg] = useState(tax1);
-  const { locale, messages, switchLocal } = useLocale();
+  const { locale, messages, switchLocale } = useLocale() || {};    // Now you can safely use locale, messages, and switchLocale
+
 
   return (
     <section

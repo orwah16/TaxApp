@@ -6,8 +6,6 @@
         { "href": "#products", "label": "خدمات" },
         { "href": "#contact-us", "label": "تواصل معنا" }
     ],
-
-
     "statistics": [
         { "value": "30+", "label": "سنوات تجربة" },
         { "value": "100+", "label": "عملاء" }

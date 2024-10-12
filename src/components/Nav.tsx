@@ -2,7 +2,6 @@
 import React, { useContext } from 'react';
 import { hamburger } from "../assets/icons";
 import  headerLogo  from "../assets/images/headerLogo.png";
-import { navLinks } from "../constants";
 import { useState } from "react";
 import { LocaleContext,useLocale } from '../LocaleContext';
 
@@ -13,17 +12,17 @@ import { LocaleContext,useLocale } from '../LocaleContext';
 // }
 
 function Nav() {
-  const context = useContext(LocaleContext);
-  const { locale, messages, switchLocal } = useLocale();
+  const { locale, messages, switchLocale } = useLocale() || {};   const context = useContext(LocaleContext);
 
   if (!context) {
     throw new Error('LocaleContext must be used within a LocaleProvider');
   }
 
-  const { switchLocale } = context;
+  //const { switchLocale } = context;
 
   const changeLocale = (newLocale: string) => {
-    switchLocale(newLocale);
+    if(switchLocale)
+      switchLocale(newLocale);
   };
 
   return (
@@ -38,7 +37,7 @@ function Nav() {
                 />
             </a>
             <ul className="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
-              {messages.naviLinks.map((item) => (
+              {messages.navLinks.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}

@@ -10,6 +10,7 @@ export interface LocaleContextProps {
 
 export const LocaleContext = createContext<LocaleContextProps | undefined>(undefined);
 
+
 interface LocaleProviderProps {
   children: ReactNode;
 }
