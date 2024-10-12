@@ -15,9 +15,17 @@
         "big_title": "שירות החזרי המס שלנו",
         "second_title": "נשמח לעזור",
 
-        
+
         "leave_info": "תשאירו פרטים ונחזור אליכם",
         "name": "שם פרטי",
         "last_name": "שם משפחה",
-        "mobile": "טלפון"  
+        "mobile": "טלפון"  ,
+
+        "services":"מה עוד אנחנו מציעים",
+
+        "our_office":"משרד שלנו",
+        "location":"מיקום",
+        "office_phone":"טלפון",
+        "office_email":"דואר אלקטרוני",
+        "working_hours":"שעות עבודה"
 }

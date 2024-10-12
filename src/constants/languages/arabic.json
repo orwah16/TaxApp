@@ -19,6 +19,13 @@
         "leave_info": "اترك تفاصيلك لنتواصل معك",
         "name": "الاسم",
         "last_name": "العائلة",
-        "mobile": "رقم الهاتف"  
+        "mobile": "رقم الهاتف" ,
 
+        "services":"خدمات اضافية",
+
+        "our_office":"مكتبنا",
+        "location":"موقع",
+        "office_phone":"هاتف",
+        "office_email":"بريد الكتروني",
+        "working_hours":"ساعات العمل"
 }

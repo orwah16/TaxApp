@@ -6,11 +6,6 @@ import {tax1} from "../assets/images"
 import {FormattedMessage} from "react-intl";
 import { useLocale } from '../LocaleContext';
 
-interface LocaleContextProps {
-  locale: string;
-  messages: any;
-  switchLocale: (locale: string) => void;
-}
 
 const welcome = () => {
   const [bigReviewImg, setBigReviewImg] = useState(tax1);

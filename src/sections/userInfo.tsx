@@ -1,34 +1,41 @@
+import { useLocale } from '../LocaleContext';
+import {FormattedMessage} from "react-intl";
 
 function userInfo() {
+  const { locale, messages, switchLocale } = useLocale() || {};    // Now you can safely use locale, messages, and switchLocale
+
   return (
     <section className="flex justify-center">
       <div className="flex-col">
       <h1 className="flex justify-center my-10 mx-0 text-4xl text-black font-palanquin max-sm:text-[72px]
         max-sm:leading-[82] font-bold">
           <span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">
-            תשאירו פרטים ונחזור אליכם
+            <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />
+
           </span>
         </h1>
       <form className="w-full max-w-lg">
   <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-        שם פרטי
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+        <FormattedMessage id="name" defaultMessage="خدمة العائدات الضريبية" />
       </label>
       <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane"/>
-      <p className="text-red-500 text-xs italic">Please fill out this field.</p>
+      <p className="text-red-500 text-xs italic">
+        <FormattedMessage id="ي" defaultMessage="خطأ" />
+      </p>
     </div>
     <div className="w-full md:w-1/2 px-3">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-        שם משפחה
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+        <FormattedMessage id="last_name" defaultMessage="خدمة العائدات الضريبية" />
       </label>
       <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"/>
     </div>
   </div>
   <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full px-3">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-        טלפון
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+        <FormattedMessage id="mobile" defaultMessage="خدمة العائدات الضريبية" />
       </label>
       <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-number" type="text" placeholder="0501122233"/>
       <p className="text-gray-600 text-xs italic"></p>
@@ -36,14 +43,14 @@ function userInfo() {
   </div>
   <div className="flex flex-wrap -mx-3 mb-2">
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-        עיר
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+        <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />
       </label>
       <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque"/>
     </div>
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-        סוג תעסוקה
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+        <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />
       </label>
       <div className="relative">
         <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
@@ -57,8 +64,8 @@ function userInfo() {
       </div>
     </div>
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-        מיקוד
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+        <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />
       </label>
       <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210"/>
     </div>

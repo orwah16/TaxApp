@@ -1,13 +1,16 @@
-
+import { useLocale } from '../LocaleContext';
+import {FormattedMessage} from "react-intl";
 
 const contact = () => {
+    const { locale, messages, switchLocale } = useLocale() || {};    // Now you can safely use locale, messages, and switchLocale
+
   return (
 <div >
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
             <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Location</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                משרד שלנו
+                <FormattedMessage id="our_office" defaultMessage="خدمة العائدات الضريبية" />
             </p>
             <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
                 כמה דברים נחמדים
@@ -29,7 +32,7 @@ const contact = () => {
                     </div>
                     <div className="ml-4">
                         <dt className="text-lg leading-6 font-medium text-gray-900">
-                            מיקום
+                        <FormattedMessage id="location" defaultMessage="خدمة العائدات الضريبية" />
                         </dt>
                         <dd className="mt-2 text-base text-gray-500">
                             123 Main St, Suite 100
@@ -51,7 +54,7 @@ const contact = () => {
                     </div>
                     <div className="ml-4">
                         <dt className="text-lg leading-6 font-medium text-gray-900">
-                            טלפון
+                        <FormattedMessage id="office_phone" defaultMessage="خدمة العائدات الضريبية" />
                         </dt>
                         <dd className="mt-2 text-base text-gray-500">
                             (555) 555-5555
@@ -72,7 +75,7 @@ const contact = () => {
                     </div>
                     <div className="ml-4">
                         <dt className="text-lg leading-6 font-medium text-gray-900">
-                            Email
+                        <FormattedMessage id="office_email" defaultMessage="خدمة العائدات الضريبية" />
                         </dt>
                         <dd className="mt-2 text-base text-gray-500">
                             info@ourstore.com
@@ -93,7 +96,7 @@ const contact = () => {
                     </div>
                     <div className="ml-4">
                         <dt className="text-lg leading-6 font-medium text-gray-900">
-                            שעות עבודה
+                        <FormattedMessage id="working_hours" defaultMessage="خدمة العائدات الضريبية" />
                         </dt>
                         <dd className="mt-2 text-base text-gray-500">
                             Monday - Friday: 9am to 8pm

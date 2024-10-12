@@ -2,14 +2,7 @@
 import React, { useContext } from 'react';
 import { hamburger } from "../assets/icons";
 import  headerLogo  from "../assets/images/headerLogo.png";
-import { useState } from "react";
 import { LocaleContext,useLocale } from '../LocaleContext';
-
-// export interface LocaleContextProps {
-//   locale: string;
-//   messages: any;
-//   switchLocale: (locale: string) => void;
-// }
 
 function Nav() {
   const { locale, messages, switchLocale } = useLocale() || {};   const context = useContext(LocaleContext);
