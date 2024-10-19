@@ -3,6 +3,8 @@ import UserInfo from "./sections/userInfo";
 import Services from "./sections/services";
 import Welcome from "./sections/welcome";
 import Contact from "./sections/contact";
+import Process from "./sections/aboutTheProcess";
+
 import Nav from "./components/Nav"
 
 const App = () => (
@@ -18,7 +20,7 @@ const App = () => (
       <UserInfo/>
     </section>
     <section className="bg-pale-blue padding">
-      
+      <Process/>
     </section>
     <section id="services" className="bg-white padding-x padding-t pb-8">
       <Services/>
