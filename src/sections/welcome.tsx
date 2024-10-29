@@ -16,7 +16,7 @@ const welcome = () => {
     <section
       id="home"
       className="w-full flex xl:flex-row flex-col 
-      min-h-screen justify-center max-container"
+      min-h-screen justify-center max-container "
       >
       <div className="relative flex flex-1 justify-center items-center sm:mt-20 xl:min-h-screen max-xl:py-40
        bg-center">
@@ -29,13 +29,13 @@ const welcome = () => {
         
       </div>
       <div className="relative  z-5 xl:w-2/5 flex flex-col 
-      justify-center items-end w-full max-xl:padding-x pt-28">
-        <p className="font-semibold text-2xl font-montserrat text-blue-600">
+      justify-center items-end w-full max-xl:pt-28">
+        <p className="font-semibold text-2xl font-montserrat text-blue-600 ">
         <FormattedMessage id="first_title" defaultMessage="خدمة العائدات الضريبية" />
         </p>
-        <h1 className="my-10 mx-0 text-8xl text-blue-600 font-palanquin max-sm:text-[72px]
-        max-sm:leading-[82] font-bold">
-          <span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">
+        <h1 className="my-10 mx-0 text-[72px] text-blue-600 font-palanquin max-sm:text-[50px]
+         font-bold">
+          <span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10 ">
           <FormattedMessage id="big_title" defaultMessage="خدمة العائدات الضريبية" />
           </span>
         </h1>

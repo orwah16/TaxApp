@@ -7,14 +7,14 @@ function userInfo() {
   return (
     <section className="flex justify-center">
       <div className="flex-col">
-      <h1 className="flex justify-center my-10 mx-0 text-4xl text-black font-palanquin max-sm:text-[72px]
-        max-sm:leading-[82] font-bold">
+      <h1 className="flex justify-center my-10 mx-0 text-4xl text-black font-palanquin text-[72px] max-sm:text-[50px]
+       font-bold">
           <span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">
             <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />
 
           </span>
         </h1>
-      <form className="w-full max-w-lg">
+  <form className="w-full max-w-lg">
   <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
