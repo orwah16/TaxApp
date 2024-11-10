@@ -33,7 +33,7 @@ const welcome = () => {
         <p className="font-semibold text-2xl font-montserrat text-blue-600 ">
         <FormattedMessage id="first_title" defaultMessage="خدمة العائدات الضريبية" />
         </p>
-        <h1 className="my-10 mx-0 text-[72px] text-blue-600 font-palanquin max-sm:text-[50px]
+        <h1 className="my-10 mx-0 text-[72px] max-sm:text-[50px] text-blue-600 font-palanquin 
          font-bold">
           <span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10 ">
           <FormattedMessage id="big_title" defaultMessage="خدمة العائدات الضريبية" />

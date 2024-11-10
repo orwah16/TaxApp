@@ -4,6 +4,7 @@ import Services from "./sections/services";
 import Welcome from "./sections/welcome";
 import Contact from "./sections/contact";
 import Process from "./sections/aboutTheProcess";
+import index from "../index.css"
 
 import Nav from "./components/Nav"
 
@@ -28,6 +29,7 @@ const App = () => (
     <section id="contact-us" className="bg-pale-blue padding">
       <Contact/>
     </section>
+
   </main>
 );
 

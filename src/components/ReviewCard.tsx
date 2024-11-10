@@ -1,4 +1,3 @@
-import { transparent } from "react-native-paper/lib/typescript/styles/themes/v2/colors"
 
 
 const ReviewCard = ({thumbnail,changeBigReviewImage,bigReviewImg}:{thumbnail:any,

@@ -1,8 +1,28 @@
 import { useLocale } from '../LocaleContext';
 import {FormattedMessage} from "react-intl";
+import { useState } from 'react';
+import  arrowRight  from "../assets/icons/arrow-right.svg";
+import Button from "../components/Button";
+
+
+export interface userInfo {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  typeOfEmployment: string;
+  taxPayer?: boolean;
+  salary?: string;
+}
 
 function userInfo() {
   const { locale, messages, switchLocale } = useLocale() || {};    // Now you can safely use locale, messages, and switchLocale
+  // const { firstName, setFirstName } = useState("")
+  // const { lastName, setLasttName } = useState("")
+  // const { phoneNumber, setPhoneNumber } = useState("")
+  // const { typeOfEmployment, setTypeOfEmployment } = useState("")
+  // const { taxPayer, setTaxPayer } = useState(false)
+  // const { salary, setSalary } = useState("")
+
 
   return (
     <section className="flex justify-center">
@@ -70,9 +90,52 @@ function userInfo() {
       <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210"/>
     </div>
   </div>
+  <details className="bg-white duration-300 w-full align-bottom justify-items-end">
+      <summary className="bg-inherit px-5 py-3 text-lg">תמשיך לשאר השאלות</summary>
+
+      <div className="bg-white px-5 py-3 text-sm font-light">
+        <div className="flex flex-wrap flex-row relative w-full">
+          <div className='flex-1 flex-row relative w-3/4 '>
+            <select className=" block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+              <option>כן</option>
+              <option>לא</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            </div>
+          </div>
+          <label className="relative w-1/4 px-5 block uppercase tracking-wide text-gray-700 text-right text-base font-bold mb-2" >
+            <FormattedMessage id="ככ" defaultMessage=" האם אתה משלם מס הכנסה?" />
+          </label>
+        </div>
+      </div>
+      
+      <div className="bg-white px-5 py-3 text-sm font-light">
+        <div className="flex flex-wrap flex-row relative w-full">
+          <div className='flex-1 flex-row relative w-3/4 '>
+            <select className=" block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+              <option>7000 עד</option>
+              <option>7000-9000</option>
+              <option>מעל 9000</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            </div>
+          </div>
+          <label className="relative w-1/4 px-5 block uppercase tracking-wide text-gray-700 text-right text-base font-bold mb-2" >
+            <FormattedMessage id="ככ" defaultMessage="שכר חודשי ברוטו" />
+          </label>
+        </div>
+      </div>
+
+      <Button label="השאר פרטים" iconURL={arrowRight}/>
+
+      
+    </details>
 </form>
-</div>
-    </section>
+
+  </div>
+</section>
   )
 }
 
