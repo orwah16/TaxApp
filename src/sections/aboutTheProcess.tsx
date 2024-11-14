@@ -209,29 +209,3 @@ export default aboutTheProcess;
 
 
 
-    // <section className='w-full flex xl:flex-row flex-col justify-center '>
-    //     <div className="relative  xl:w-2/5 flex flex-col 
-    //     justify-center items-end w-full max-xl:padding-x pt-5">
-    //         <h1 className="flex justify-center my-10 text-4xl text-black font-palanquin max-sm:text-[72px]
-    //         max-sm:leading-[82] font-bold">
-    //         <span className=" xl:whitespace-nowrap relative z-10 pr-10">
-    //             <FormattedMessage id="the_process" defaultMessage="خدمة العائدات الضريبية" />
-    //         </span>
-    //         </h1>
-    //         <p className="mt-4  font-semibold text-2xl font-montserrat text-blue-400 sm:max-w-sm">
-    //             <FormattedMessage id="steps" defaultMessage="خدمة العائدات الضريبية" />
-    //         </p>
-    //         <p className="mt-4 font-semibold text-xl font-montserrat text-blue-400 sm:max-w-sm">
-    //             <FormattedMessage id="step1" defaultMessage="خدمة العائدات الضريبية" />
-    //         </p>
-    //         <p className="mt-4 font-semibold text-xl font-montserrat text-blue-400 sm:max-w-sm">
-    //             <FormattedMessage id="step2" defaultMessage="خدمة العائدات الضريبية" />
-    //         </p>
-    //         <p className="mt-4 font-semibold text-xl font-montserrat text-blue-400 sm:max-w-sm">
-    //             <FormattedMessage id="step3" defaultMessage="خدمة العائدات الضريبية" />
-    //         </p>
-    //         <p className="mt-4 mb-14 font-semibold text-xl font-montserrat text-blue-400 sm:max-w-sm">
-    //             <FormattedMessage id="step4" defaultMessage="خدمة العائدات الضريبية" />
-    //         </p>
-    //     </div>
-    // </section>

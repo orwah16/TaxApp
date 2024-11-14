@@ -1,19 +1,21 @@
 import pandas as pd 
 
-def addRequest(firstName,lastName,phoneNumber):# Creating the first Dataframe using dictionary 
+def addRequest(firstName,lastName,phoneNumber,income,typeOfEmployment):# Creating the first Dataframe using dictionary 
     isThere = False
     
     # Creating the first Dataframe using dictionary 
     df1 = pd.read_csv('./requests.csv')
     
     try:
-        firstName = firstName
-        lastName = lastName
-        phoneNumber = phoneNumber
-        
-        print(firstName,lastName,phoneNumber)
+        first_name = firstName
+        last_name = lastName
+        phone_number = phoneNumber
+        type_of_employment = typeOfEmployment
+        income = income
+
+        print(first_name,last_name,phone_number,type_of_employment,income)
     
-        if( firstName == '' or lastName == '' or phoneNumber == ''):
+        if( first_name == '' or last_name == '' or phone_number == ''):
             invalid = "invalid"
             return invalid
     
@@ -22,20 +24,22 @@ def addRequest(firstName,lastName,phoneNumber):# Creating the first Dataframe us
         return error
     
     for index, row in df1.iterrows(): 
-        print(row['firsName'], row['lastName']) 
-        if str(row['firstName']) == str(firstName) and str(row['lastName']) == str(lastName) and str(row['phoneNumber']) == str(phoneNumber):
+        #print(row['firsName'], row['lastName']) 
+        if str(row['first_name']) == str(first_name) and str(row['last_name']) == str(last_name) and str(row['phone_number']) == str(phone_number):
             # then update all values here
             isThere = True# Creating the Second Dataframe using dictionary 
-    
-    if isThere != True: 
-        df2 = pd.DataFrame
-        ({
-        "firsName":[firstName], 
-        "lastName":[lastName], 
-        "phoneNumber":[phoneNumber]
-        }) 
-    
-        dff = df1.append(df2, ignore_index = True)
+            break
+    if not isThere: 
+        df2 = pd.DataFrame({ 
+        "first_name": [first_name], 
+        "last_name": [last_name],
+        "phone_number": [phone_number], 
+        "type_of_employment": [type_of_employment],
+        "income": [income]
+     })
+        print(type(df1),type(df2))
+
+        dff = df1._append(df2, ignore_index = True)
         dff.to_csv(r'./requests.csv', index = False)
         
         add = "added"
