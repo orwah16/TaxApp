@@ -3,26 +3,30 @@ import {FormattedMessage} from "react-intl";
 import { useState } from 'react';
 import  arrowRight  from "../assets/icons/arrow-right.svg";
 import Button from "../components/Button";
+import {ClientInfo} from "../../types"
+import { updateUsers } from "../../API"
 
-
-export interface userInfo {
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  typeOfEmployment: string;
-  taxPayer?: boolean;
-  salary?: string;
-}
 
 function userInfo() {
   const { locale, messages, switchLocale } = useLocale() || {};    // Now you can safely use locale, messages, and switchLocale
-  // const { firstName, setFirstName } = useState("")
-  // const { lastName, setLasttName } = useState("")
-  // const { phoneNumber, setPhoneNumber } = useState("")
-  // const { typeOfEmployment, setTypeOfEmployment } = useState("")
-  // const { taxPayer, setTaxPayer } = useState(false)
-  // const { salary, setSalary } = useState("")
+  const [ firstName, setFirstName ] = useState("")
+  const [ lastName, setLastName ] = useState("")
+  const [ phoneNumber, setPhoneNumber ] = useState("")
+  const [ typeOfEmployment, setTypeOfEmployment ] = useState("")
+  const [ taxPayer, setTaxPayer ] = useState(false)
+  const [ income, setIncome ] = useState("")
 
+  const saveUser = () => {
+    console.log("saveUser function")
+    const data:ClientInfo = {
+      firstName: firstName,
+      lastName: lastName,
+      phoneNumber: phoneNumber,
+      typeOfEmployment: typeOfEmployment,
+      income: income
+    }
+    updateUsers(data)
+  }
 
   return (
     <section className="flex justify-center">
@@ -34,13 +38,15 @@ function userInfo() {
 
           </span>
         </h1>
-  <form className="w-full max-w-lg">
+  <form onSubmit={(e) => e.preventDefault()} className="w-full max-w-lg">
   <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
         <FormattedMessage id="name" defaultMessage="خدمة العائدات الضريبية" />
       </label>
-      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane"/>
+      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane"
+        onChange={(event) => setFirstName(event.target.value)}
+      />
       <p className="text-red-500 text-xs italic">
         <FormattedMessage id="ي" defaultMessage="خطأ" />
       </p>
@@ -49,7 +55,9 @@ function userInfo() {
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
         <FormattedMessage id="last_name" defaultMessage="خدمة العائدات الضريبية" />
       </label>
-      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"/>
+      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe"
+                onChange={(event) => setLastName(event.target.value)}
+      />
     </div>
   </div>
   <div className="flex flex-wrap -mx-3 mb-6">
@@ -57,7 +65,9 @@ function userInfo() {
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
         <FormattedMessage id="mobile" defaultMessage="خدمة العائدات الضريبية" />
       </label>
-      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-number" type="text" placeholder="0501122233"/>
+      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-number" type="text" placeholder="0501122233"
+              onChange={(event) => setPhoneNumber(event.target.value)}
+      />
       <p className="text-gray-600 text-xs italic"></p>
     </div>
   </div>
@@ -105,7 +115,7 @@ function userInfo() {
             </div>
           </div>
           <label className="relative w-1/4 px-5 block uppercase tracking-wide text-gray-700 text-right text-base font-bold mb-2" >
-            <FormattedMessage id="ככ" defaultMessage=" האם אתה משלם מס הכנסה?" />
+            {/* <FormattedMessage id="ככ" defaultMessage=" האם אתה משלם מס הכנסה?" /> */}
           </label>
         </div>
       </div>
@@ -113,7 +123,9 @@ function userInfo() {
       <div className="bg-white px-5 py-3 text-sm font-light">
         <div className="flex flex-wrap flex-row relative w-full">
           <div className='flex-1 flex-row relative w-3/4 '>
-            <select className=" block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+            <select className=" block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state"
+                  onChange={(event) => setIncome( event.target.value )}
+            >
               <option>7000 עד</option>
               <option>7000-9000</option>
               <option>מעל 9000</option>
@@ -123,12 +135,12 @@ function userInfo() {
             </div>
           </div>
           <label className="relative w-1/4 px-5 block uppercase tracking-wide text-gray-700 text-right text-base font-bold mb-2" >
-            <FormattedMessage id="ככ" defaultMessage="שכר חודשי ברוטו" />
+            {/* <FormattedMessage id="ככ" defaultMessage="שכר חודשי ברוטו" /> */}
           </label>
         </div>
       </div>
 
-      <Button label="השאר פרטים" iconURL={arrowRight}/>
+      <Button label="השאר פרטים" iconURL={arrowRight} onClick={saveUser}/>
 
       
     </details>

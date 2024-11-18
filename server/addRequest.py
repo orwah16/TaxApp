@@ -35,6 +35,7 @@ def addRequest(firstName,lastName,phoneNumber,income,typeOfEmployment):# Creatin
         "last_name": [last_name],
         "phone_number": [phone_number], 
         "type_of_employment": [type_of_employment],
+        
         "income": [income]
      })
         print(type(df1),type(df2))

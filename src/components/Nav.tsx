@@ -53,11 +53,11 @@ function Nav() {
       </svg>
     </button>
   </div>
-  <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+  <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" >
     <div className="py-1" role="none">
       {/* <a  href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">عربية</a> */}
-        <button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>changeLocale('ar')} type="submit" className="block w-full px-4 py-2 text-left text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">عربية</button>
-        <button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>changeLocale('he')} type="submit" className="block w-full px-4 py-2 text-left text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-2">עברית</button>
+        <button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>changeLocale('ar')} type="submit" className="block w-full px-4 py-2 text-left text-sm text-gray-700" role="menuitem"  id="menu-item-1">عربية</button>
+        <button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>changeLocale('he')} type="submit" className="block w-full px-4 py-2 text-left text-sm text-gray-700" role="menuitem"  id="menu-item-2">עברית</button>
     </div>
   </div>
 </div>
