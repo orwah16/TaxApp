@@ -25,7 +25,7 @@ export const updateUsers = async (client: ClientInfo) => {
     }),
   };
   console.log("before fetch")
-  const timeoutId = setTimeout(() => controller.abort(), 4000);
+  // const timeoutId = setTimeout(() => controller.abort(), 4000);
   try{
   const promise = fetch(url+'/API', options)
 
@@ -33,6 +33,7 @@ export const updateUsers = async (client: ClientInfo) => {
     .then((response) => {
         console.log(response)
         if (response.status === 200) {
+          console.log(response.status)
           return response.json();
         } else {
           throw 'Error updating clients'
