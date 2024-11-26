@@ -13,7 +13,7 @@ function userInfo() {
   const [ lastName, setLastName ] = useState("")
   const [ phoneNumber, setPhoneNumber ] = useState("")
   const [ typeOfEmployment, setTypeOfEmployment ] = useState("")
-  const [ taxPayer, setTaxPayer ] = useState(false)
+  const [ taxPayer, setTaxPayer ] = useState("")
   const [ income, setIncome ] = useState("")
 
   const saveUser = () => {
@@ -83,7 +83,9 @@ function userInfo() {
         <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />
       </label>
       <div className="relative">
-        <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+        <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state"
+          onChange={(event) => setTypeOfEmployment( event.target.value )}
+        >
           <option>סכיר</option>
           <option>עצמאי</option>
           <option>שניהם</option>
@@ -106,7 +108,9 @@ function userInfo() {
       <div className="bg-white px-5 py-3 text-sm font-light">
         <div className="flex flex-wrap flex-row relative w-full">
           <div className='flex-1 flex-row relative w-3/4 '>
-            <select className=" block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+            <select className=" block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state"
+              onChange={(event) => setTaxPayer( event.target.value )}
+            >
               <option>כן</option>
               <option>לא</option>
             </select>

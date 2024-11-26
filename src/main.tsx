@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')!).render(
       <LocaleContext.Consumer>
       {({ locale }) => (
         <IntlProvider locale={locale} messages={messages[locale]}>
-          <App />
+          <App/>
         </IntlProvider>
       )}
       </LocaleContext.Consumer>

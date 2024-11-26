@@ -1,12 +1,14 @@
 
 import os
 import psycopg2
+from dotenv import load_dotenv
 
+load_dotenv()
 conn = psycopg2.connect(
-        host="localhost",
-        database="taxApp_db",
-        user=os.environ['DB_USERNAME'],
-        password=os.environ['DB_PASSWORD'])
+        host=os.environ['HOST'],
+        database=os.environ['DATABASE'],
+        user=os.environ['USER'],
+        password=os.environ['PASSWORD'])
 
 # Open a cursor to perform database operations
 cur = conn.cursor()
@@ -15,11 +17,13 @@ cur = conn.cursor()
 cur.execute('DROP TABLE IF EXISTS clients;')
 cur.execute('CREATE TABLE clients (id serial PRIMARY KEY,'
                                  'first_name varchar (150) NOT NULL,'
-                                 'last_name varchar (50) NOT NULL,'
-                                 'phone_number integer NOT NULL,'
+                                 'last_name varchar (150) NOT NULL,'
+                                 'phone_number varchar (150) NOT NULL,'
                                  'type_of_employment varchar (150),'
-                                 'income integer NOT NULL,'
-                                 'date_added date DEFAULT CURRENT_TIMESTAMP);'
+                                 'income varchar (150),'
+                                 'date_added date DEFAULT CURRENT_TIMESTAMP),'
+                                 'CONSTRAINT unique_name UNIQUE (first_name, last_name, phone_number);'
+
                                  )
 
 

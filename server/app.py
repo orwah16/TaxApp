@@ -8,10 +8,11 @@ app = Flask(__name__)
 CORS(app)
 
 def get_db_connection():
-    conn = psycopg2.connect(host='localhost',
-                            database='taxApp_db',
-                            user=os.environ['DB_USERNAME'],
-                            password=os.environ['DB_PASSWORD'])
+    conn = psycopg2.connect(
+            host=os.environ['HOST'],
+            database=os.environ['DATABASE'],
+            user=os.environ['USER'],
+            password=os.environ['PASSWORD'])
     return conn
 
 @app.route('/', defaults={'path': ''})#for non existant routs
@@ -35,18 +36,24 @@ def add():
     
     if( firstName == '' or lastName == '' or phoneNumber == ''):
         invalid = "invalid"
-        return invalid.headers.add('Access-Control-Allow-Origin', '*') 
+        return invalid 
 
     conn = get_db_connection()
-    with conn:
-        with conn.cursor() as cur:
-            cur.execute('INSERT INTO clients (first_name, last_name, phone_number, type_of_employemnt, income)'
-                        'VALUES (%s, %s, %s, %s, %s) returning id',
-                        (firstName, lastName, phoneNumber, typeOfEmployment, income))
-            conn.commit()
-            cur.close()
+    try:
+        with conn:
+            with conn.cursor() as cur:
+                cur.execute('INSERT INTO clients (first_name, last_name, phone_number, type_of_employment)'
+                            'VALUES (%s, %s, %s, %s, %s) '
+                            'ON CONFLICT (first_name, last_name, phone_number)'
+                            'DO UPDATE SET type_of_employment = EXCLUDED.type_of_employment,'
+                              'income = EXCLUDED.income'
+                            'returning id',
+                            (firstName, lastName, phoneNumber, typeOfEmployment, income))
+                conn.commit()
+                status = cur.fetchone()
+
+    finally:
         conn.close()
-    status = cur.fetchone()
     # status = addRequest(firstName, lastName, phoneNumber,typeOfEmployment,income)
     response = jsonify({'status': status}) 
     response.headers.add('Access-Control-Allow-Origin', '*')    
