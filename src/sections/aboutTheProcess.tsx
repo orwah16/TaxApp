@@ -10,7 +10,7 @@ const aboutTheProcess = () => {
       <div className="grid gap-6 row-gap-10 lg:grid-cols-2">
         <div className="lg:py-6 lg:pr-16">
          
-          <h1 className="xl:bg-white z-5 flex flex-col justify-center my-10 mx-0 text-4xl text-black font-palanquin text-[72px] max-sm:text-[50px]
+          <h1 className="xl:bg-white z-5 flex flex-col justify-center my-10 mx-0 text-4xl text-center text-black font-palanquin text-[72px] max-sm:text-[50px]
            font-bold">
           <span className=" xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">
             <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />

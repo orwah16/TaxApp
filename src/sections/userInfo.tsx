@@ -29,9 +29,9 @@ function userInfo() {
   }
 
   return (
-    <section className="flex justify-center">
-      <div className="flex-col">
-      <h1 className="flex justify-center my-10 mx-0 text-4xl text-black font-palanquin text-[72px] max-sm:text-[50px]
+    <section className="flex justify-center items-center text-right">
+      <div className="flex flex-col items-center">
+      <h1 className="flex justify-center my-10 mx-0 text-4xl text-black text-center font-palanquin text-[72px] max-sm:text-[50px]
        font-bold">
           <span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">
             <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />
