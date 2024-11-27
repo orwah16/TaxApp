@@ -1,4 +1,5 @@
-type ButtonProps = { label: string;
+type ButtonProps = {
+   label: string;
    iconURL: string; 
    onClick: () => void; // Function prop
  };
