@@ -6,6 +6,8 @@ import Button from "../components/Button";
 import {ClientInfo} from "../../types"
 import { updateUsers } from "../../API"
 import Question from '../components/Question';
+import MultiOption from '../components/MultiOption';
+
 
 function userInfo() {
   const { locale, messages, switchLocale } = useLocale() || {};    // Now you can safely use locale, messages, and switchLocale
@@ -58,10 +60,7 @@ function userInfo() {
   </div>
   <div className="flex flex-wrap -mx-3 mb-2">
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-        <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />
-      </label>
-      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque"/>
+    <Question label='leave_info' setter={setPhoneNumber}/>
     </div>
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
@@ -81,67 +80,15 @@ function userInfo() {
       </div>
     </div>
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-        <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />
-      </label>
-      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210"/>
+      <Question label='leave_info' setter={setPhoneNumber}/>
     </div>
   </div>
 
-
-
-
-
-
   <details className="bg-white duration-300 w-full align-bottom justify-items-end">
       <summary className="bg-inherit px-5 py-3 text-lg">תמשיך לשאר השאלות</summary>
-
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full px-3">
-          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-        <FormattedMessage id="name" defaultMessage="خدمة العائدات الضريبية" />
-        </label>
-          <div className='flex flex-row relative '>
-            <select className=" block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state"
-              onChange={(event) => setTaxPayer( event.target.value )}
-            >
-              <option>כן</option>
-              <option>לא</option>
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
-            </div>
-          </div>
-          <label className="relative w-1/4 px-5 block uppercase tracking-wide text-gray-700 text-right text-base font-bold mb-2" >
-            {/* <FormattedMessage id="ככ" defaultMessage=" האם אתה משלם מס הכנסה?" /> */}
-          </label>
-        </div>
-      
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full px-3">
-          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-        <FormattedMessage id="name" defaultMessage="خدمة العائدات الضريبية" />
-        </label>
-          <div className='flex flex-row relative '>
-            <select className=" block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state"
-              onChange={(event) => setTaxPayer( event.target.value )}
-            >
-              <option>7000 עד</option>
-              <option>7000-9000</option>
-              <option>מעל 9000</option>
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
-            </div>
-          </div>
-          <label className="relative w-1/4 px-5 block uppercase tracking-wide text-gray-700 text-right text-base font-bold mb-2" >
-            {/* <FormattedMessage id="ככ" defaultMessage=" האם אתה משלם מס הכנסה?" /> */}
-          </label>
-        </div>
-
-      <Button label="השאר פרטים" iconURL={arrowRight} onClick={saveUser}/>
+        <MultiOption label='name' setter={setTaxPayer} options={["כן","לא"]}/>
+        <MultiOption label='name' setter={setTaxPayer} options={["7000","7000-9000","מעל 9000"]}/>
+        <Button label="השאר פרטים" iconURL={arrowRight} onClick={saveUser}/>
 
       
     </details>
