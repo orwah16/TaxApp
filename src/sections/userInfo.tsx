@@ -7,7 +7,7 @@ import {ClientInfo} from "../../types"
 import { updateUsers } from "../../API"
 import Question from '../components/Question';
 import MultiOption from '../components/MultiOption';
-
+import { ResultModal } from '../components/ResultModal';
 
 function userInfo() {
   const { locale, messages, switchLocale } = useLocale() || {};    // Now you can safely use locale, messages, and switchLocale
