@@ -34,14 +34,17 @@ export const updateUsers = async (client: ClientInfo) => {
         console.log(response)
         if (response.status === 200) {
           console.log(response.status)
-          return response.json();
+          console.log(response.json())
+          return true;
         } else {
-          throw 'Error updating clients'
+          // throw 'Error updating clients'
+          return false;
         }
       }).then((data) => {
           console.log(data);
       });
   } catch(error){
     console.log("issue with backend")
+    return false;
   }
 }

@@ -1,6 +1,6 @@
 import { useLocale } from '../LocaleContext';
 import {FormattedMessage} from "react-intl";
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import  arrowRight  from "../assets/icons/arrow-right.svg";
 import Button from "../components/Button";
 import {ClientInfo} from "../../types"
@@ -17,7 +17,8 @@ function userInfo() {
   const [ typeOfEmployment, setTypeOfEmployment ] = useState("")
   const [ taxPayer, setTaxPayer ] = useState("")
   const [ income, setIncome ] = useState("")
-
+  const [ visible, setVisibility] = useState(false)
+  const [ result, setResult] = useState("")
   const saveUser = () => {
     console.log("saveUser function")
     const data:ClientInfo = {
@@ -27,11 +28,28 @@ function userInfo() {
       typeOfEmployment: typeOfEmployment,
       income: income
     }
-    updateUsers(data)
+    updateUsers(data).then((response) => {
+      if(response != false && response != undefined){
+        setVisibility(true)
+        setResult("1")
+      }else{
+        setVisibility(false)
+        setResult("-1")
+      }
+    })
   }
+  useEffect(() => {
+    console.log("modal open")
+  }, [visible]);
 
+  const handle_close = () => {
+    setVisibility(false)
+  } 
   return (
+
     <section className="flex justify-center items-center text-right">
+  <ResultModal isVisible={visible} result={result} handleClose={handle_close}></ResultModal>
+
       <div className="flex flex-col items-center">
       <h1 className="flex justify-center my-10 mx-0 text-4xl text-black text-center font-palanquin text-[72px] max-sm:text-[50px]
        font-bold">
@@ -40,6 +58,9 @@ function userInfo() {
 
           </span>
         </h1>
+
+
+
   <form onSubmit={(e) => e.preventDefault()} className="w-full max-w-lg">
 
   <div className="flex flex-wrap -mx-3 mb-6">
@@ -96,6 +117,7 @@ function userInfo() {
 
   </div>
 </section>
+
   )
 }
 
