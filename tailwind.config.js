@@ -37,6 +37,9 @@ export default {
       },
       screens: {
         "wide": "1440px"
+      },
+      animation: {
+        "error-bounce": "bounce 1s"
       }
     },
   },

@@ -1,5 +1,6 @@
 import { useLocale } from '../LocaleContext';
 import {FormattedMessage} from "react-intl";
+import Step from '../components/Step'
 
 const aboutTheProcess = () => { 
     const { locale, messages, switchLocale } = useLocale() || {};    // Now you can safely use locale, messages, and switchLocale
@@ -10,157 +11,17 @@ const aboutTheProcess = () => {
       <div className="grid gap-6 row-gap-10 lg:grid-cols-2">
         <div className="lg:py-6 lg:pr-16">
          
-          <h1 className="xl:bg-white z-5 flex flex-col justify-center my-10 mx-0 text-4xl text-center text-black font-palanquin text-[72px] max-sm:text-[50px]
-           font-bold">
-          <span className=" xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">
+        <h1 className="xl:bg-white relative z-15 flex flex-col justify-center my-10 mx-0 text-4xl text-center text-black font-palanquin text-[72px] max-sm:text-[50px] font-bold px-2">
+          <span className=" xl:whitespace-nowrap xl:bg-white relative z-10 ">
             <FormattedMessage id="leave_info" defaultMessage="خدمة العائدات الضريبية" />
-
           </span>
         </h1>
-      <div className="flex flex-col">      
-        <div className="flex flex-row justify-end items-center mr-4">
-          <div className="ml-2 text-lg font-bold">
-            <FormattedMessage id="step1" defaultMessage="خدمة العائدات الضريبية" />
-          </div>
-          <div className="flex items-center justify-center w-10 h-10 border rounded-full">
-            <svg
-              className="w-4 text-gray-600"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <line
-                fill="none"
-                strokeMiterlimit="10"
-                x1="12"
-                y1="2"
-                x2="12"
-                y2="22"
-              />
-              <polyline
-                fill="none"
-                strokeMiterlimit="10"
-                points="19,15 12,22 5,15"
-              />
-            </svg>
-          </div>
-        </div>
-        <div className="flex justify-center pt-1 pb-8">
-          <p className="text-gray-700">
-            <FormattedMessage id="step1_text" defaultMessage="خدمة العائدات الضريبية" />
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-col">      
-        <div className="flex flex-row justify-end items-center mr-4">
-          <div className="ml-2 text-lg font-bold">
-          <FormattedMessage id="step2" defaultMessage="خدمة العائدات الضريبية" />
-          </div>
-          <div className="flex items-center justify-center w-10 h-10 border rounded-full">
-            <svg
-              className="w-4 text-gray-600"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <line
-                fill="none"
-                strokeMiterlimit="10"
-                x1="12"
-                y1="2"
-                x2="12"
-                y2="22"
-              />
-              <polyline
-                fill="none"
-                strokeMiterlimit="10"
-                points="19,15 12,22 5,15"
-              />
-            </svg>
-          </div>
-        </div>
-        <div className="pt-1 pb-8">
-          <p className="flex justify-center text-gray-700">
-            <FormattedMessage id="step2_text" defaultMessage="خدمة العائدات الضريبية" />
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-col">      
-        <div className="flex flex-row justify-end items-center mr-4">
-          <div className="ml-2 text-lg font-bold">
-            <FormattedMessage id="step3" defaultMessage="خدمة العائدات الضريبية" />
-          </div>
-          <div className="flex items-center justify-center w-10 h-10 border rounded-full">
-            <svg
-              className="w-4 text-gray-600"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <line
-                fill="none"
-                strokeMiterlimit="10"
-                x1="12"
-                y1="2"
-                x2="12"
-                y2="22"
-              />
-              <polyline
-                fill="none"
-                strokeMiterlimit="10"
-                points="19,15 12,22 5,15"
-              />
-            </svg>
-          </div>
-        </div>
-        <div className="pt-1 pb-8">
-          <p className="flex justify-center text-gray-700">
-            <FormattedMessage id="step3_text" defaultMessage="خدمة العائدات الضريبية" />
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-col">      
-        <div className="flex flex-row justify-end items-center mr-4">
-          <div className="ml-2 text-lg font-bold">
-            <FormattedMessage id="step4" defaultMessage="خدمة العائدات الضريبية" />
-          </div>
-          <div className="flex items-center justify-center w-10 h-10 border rounded-full">
-            <svg
-              className="w-4 text-gray-600"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <line
-                fill="none"
-                strokeMiterlimit="10"
-                x1="12"
-                y1="2"
-                x2="12"
-                y2="22"
-              />
-              <polyline
-                fill="none"
-                strokeMiterlimit="10"
-                points="19,15 12,22 5,15"
-              />
-            </svg>
-          </div>
-        </div>
-        <div className="pt-1 pb-8">
-          <p className="flex justify-center text-gray-700">
-            <FormattedMessage id="step4_text" defaultMessage="خدمة العائدات الضريبية" />
-          </p>
-        </div>
-      </div>
+
+        <Step label='step1'></Step>
+        <Step label='step2'></Step>
+        <Step label='step3'></Step>
+        <Step label='step4'></Step>
+
           <div className="flex flex-col">
             <div className="flex flex-row justify-end items-center mr-4">
             <div className="pt-1">
@@ -187,8 +48,6 @@ const aboutTheProcess = () => {
                   </svg>
                 </div>
               </div>
-            
-
             </div>
           </div>
         </div>

@@ -7,7 +7,6 @@ type ModalProps = {
 };
 
 export const ResultModal: React.FC<ModalProps> = ({ isVisible, result, handleClose }) => {
-  isVisible = true
   return (
     
     <div

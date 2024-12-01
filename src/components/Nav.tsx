@@ -1,10 +1,13 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { hamburger } from "../assets/icons";
 import headerLogo from "../assets/images/headerLogo.png";
 import { LocaleContext, useLocale } from '../LocaleContext';
 
 function Nav() {
   const { locale, messages, switchLocale } = useLocale() || {};
+  const [langOpen, setlangOpen] = useState(false);
+  const [menuOpen, setmenuOpen] = useState(false);
+
   const context = useContext(LocaleContext);
 
   if (!context) {
@@ -16,13 +19,17 @@ function Nav() {
   };
 
   // Adding state for menu
-  const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => {
-    setMenuOpen(prevState => !prevState);
+  const langMenu = () => {
+    setlangOpen(prevState => !prevState);
   };
 
+  const sectionMenu = () => {
+    setmenuOpen(prevState => !prevState);
+  };
+
+
   return (
-    <header className="padding-x py-8 absolute z-10 w-full">
+    <header className="padding-x py-8 absolute z-20 w-full">
       <nav className="flex justify-between items-center max-container">
         <a href="/">
           <img src={headerLogo} alt="Logo" width={130} height={29} />
@@ -42,10 +49,10 @@ function Nav() {
             <button
               type="button"
               className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-              id="menu-button"
-              aria-expanded={menuOpen}
+              id="lang-button"
+              aria-expanded={langOpen}
               aria-haspopup="true"
-              onClick={toggleMenu}
+              onClick={langMenu}
             >
               Lang
               <svg
@@ -63,18 +70,18 @@ function Nav() {
               </svg>
             </button>
           </div>
-          {menuOpen && (
+          {langOpen && (
             <div
-              className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
               role="menu"
               aria-orientation="vertical"
-              aria-labelledby="menu-button"
+              aria-labelledby="lang-button"
             >
               <div className="py-1" role="none">
                 <button
                   onClick={() => changeLocale('ar')}
                   type="submit"
-                  className="block w-full px-4 py-2 text-left text-sm text-gray-700"
+                  className="block w-full px-4 py-2 text-right text-sm text-gray-700"
                   role="menuitem"
                   id="menu-item-1"
                 >
@@ -83,7 +90,7 @@ function Nav() {
                 <button
                   onClick={() => changeLocale('he')}
                   type="submit"
-                  className="block w-full px-4 py-2 text-left text-sm text-gray-700"
+                  className="block w-full px-4 py-2 text-right text-sm text-gray-700"
                   role="menuitem"
                   id="menu-item-2"
                 >
@@ -94,8 +101,37 @@ function Nav() {
           )}
         </div>
 
-        <div className="hidden max-lg:block">
-          <img src={hamburger} alt="Hamburger" width={25} height={25} />
+        <div className="hidden max-lg:block ">
+          <button              
+              type="button"
+              className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+              id="menu-button"
+              aria-expanded={menuOpen}
+              aria-haspopup="true"
+              onClick={sectionMenu}
+            >
+            <img src={hamburger} alt="Hamburger" width={25} height={25} />
+          </button>
+          {menuOpen && (
+            <div 
+              className=" text-right absolute right-0 z-40 mt-2 w-40 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="menu-button"
+            >
+              <div className="py-1 z-40" role="none">
+                <ul className="flex flex-col relative z-40">
+                  {messages.navLinks.map((item) => (
+                    <li key={item.label}>
+                      <a href={item.href} className="font-montserrat leading-normal text-lg text-slate-gray px-5">
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
     </header>
