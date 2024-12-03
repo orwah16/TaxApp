@@ -8,7 +8,7 @@ import { updateUsers } from "../../API"
 import Question from '../components/Question';
 import MultiOption from '../components/MultiOption';
 import { ResultModal } from '../components/ResultModal';
-
+import patterns from '../assets/patterns.json';
 function userInfo() {
   const { locale, messages, switchLocale } = useLocale() || {};    // Now you can safely use locale, messages, and switchLocale
   const [ firstName, setFirstName ] = useState("")
@@ -19,6 +19,21 @@ function userInfo() {
   const [ income, setIncome ] = useState("")
   const [ visible, setVisibility] = useState(false)
   const [ result, setResult] = useState("")
+  const [ isValidNumbers, setIsValidNumbers ] = useState(true)
+  const [ isValidWords, setIsValidWords ] = useState(true)
+  const [ isValidBool, setIsValidBool ] = useState(true)
+
+  type patternDictionary = {
+    patterns: {
+        word: string;
+        email: string;
+        phone: string;
+        num: string;
+    }
+}
+
+var dic:patternDictionary = patterns;
+
   const saveUser = () => {
     console.log("saveUser function")
     const data:ClientInfo = {
@@ -65,17 +80,17 @@ function userInfo() {
 
   <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-    <Question label='last_name' setter={setLastName}/>
+    <Question label='last_name' setter={setLastName} pattern={dic.patterns.word}/>
 
     </div>
     <div className="w-full md:w-1/2 px-3">
-    <Question label='name' setter={setFirstName}/>
+    <Question label='name' setter={setFirstName} pattern={dic.patterns.word}/>
 
     </div>
   </div>
   <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full px-3">
-    <Question label='mobile' setter={setPhoneNumber}/>
+    <Question label='mobile' setter={setPhoneNumber} pattern={dic.patterns.word}/>
 
     </div>
   </div>
