@@ -12,30 +12,23 @@ type QuestionProps = {
 
 const Question: React.FC<QuestionProps> = ({ label, setter, isValid, pattern }) => {
     const [matchesPattern, setMatchesPattern] = useState(true);
-    const [currentPattern, setCurrentPattern] = useState<RegExp | null>(null);
-    
-    useEffect(() => {
-        try {
-            // Check if the pattern contains Unicode property escapes
-            const unicodePattern = pattern && pattern.includes("\\");
-            const reg = new RegExp(pattern || ".*", unicodePattern ? "u" : undefined);
-            setCurrentPattern(reg);
-        } catch (e) {
-            console.error("Invalid regex pattern:", pattern);
-            setCurrentPattern(null);
-        }
-    }, [pattern]);
 
+    // Check if the pattern contains Unicode property escapes
+    const unicodePattern = pattern && pattern.includes("\\");
+    const reg = new RegExp(pattern || ".*", unicodePattern ? "u" : undefined);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         setter(value);
-
-        if (currentPattern && !currentPattern.test(String(value).toLowerCase())) {
+        console.log("pattern: ",reg)
+        console.log("value: ",value)
+        console.log("matches: ",matchesPattern)
+        if (reg && !reg.test(String(value).toLowerCase())) {
             setMatchesPattern(false);
         } else {
             setMatchesPattern(true);
         }
     };
+
 
     return (
         <div>
