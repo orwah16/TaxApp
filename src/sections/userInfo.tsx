@@ -90,7 +90,7 @@ var dic:patternDictionary = patterns;
   </div>
   <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full px-3">
-    <Question label='mobile' setter={setPhoneNumber} pattern={dic.patterns.word}/>
+    <Question label='mobile' setter={setPhoneNumber} pattern={dic.patterns.phone}/>
 
     </div>
   </div>

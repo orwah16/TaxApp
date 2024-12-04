@@ -36,8 +36,10 @@ export const updateUsers = async (client: ClientInfo) => {
           console.log(response.status)
           console.log(response.json())
           return true;
+        // } elif (response. === "invalid") {
         } else {
           // throw 'Error updating clients'
+          console.log("failour")
           return false;
         }
       }).then((data) => {

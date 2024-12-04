@@ -3,6 +3,7 @@ from addRequest import addRequest
 from flask_cors import CORS
 import os
 import psycopg2
+from validation import validation
 
 app = Flask(__name__)
 CORS(app)
@@ -34,21 +35,26 @@ def add():
 
     print(firstName," ",lastName," ",phoneNumber)
     
-    if( firstName == '' or lastName == '' or phoneNumber == ''):
-        invalid = "invalid"
-        return invalid 
+    if not validation(firstName,lastName,phoneNumber):
+        print("not Valid")
+        response = jsonify({'status': "Invalid"}) 
+        response.headers.add('Access-Control-Allow-Origin', '*')    
+        return response
 
     conn = get_db_connection()
     try:
         with conn:
             with conn.cursor() as cur:
-                cur.execute('INSERT INTO clients (first_name, last_name, phone_number, type_of_employment)'
-                            'VALUES (%s, %s, %s, %s, %s) '
-                            'ON CONFLICT (first_name, last_name, phone_number)'
-                            'DO UPDATE SET type_of_employment = EXCLUDED.type_of_employment,'
-                              'income = EXCLUDED.income'
-                            'returning id',
-                            (firstName, lastName, phoneNumber, typeOfEmployment, income))
+                cur.execute('''
+                    INSERT INTO clients (first_name, last_name, phone_number, type_of_employment, income)
+                    VALUES (%s, %s, %s, %s, %s)
+                    ON CONFLICT (first_name, last_name, phone_number)
+                    DO UPDATE SET
+                        type_of_employment = EXCLUDED.type_of_employment,
+                        income = EXCLUDED.income
+                    RETURNING id
+                ''', (firstName, lastName, phoneNumber, typeOfEmployment, income))
+
                 conn.commit()
                 status = cur.fetchone()
 

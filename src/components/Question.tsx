@@ -1,21 +1,21 @@
 
 
 import { FormattedMessage } from "react-intl";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 type QuestionProps = {
     label: string;
     setter: (value: string) => void; // Function prop
-    isValid?: boolean;
     pattern?: string;
 };
 
-const Question: React.FC<QuestionProps> = ({ label, setter, isValid, pattern }) => {
+const Question: React.FC<QuestionProps> = ({ label, setter, pattern }) => {
     const [matchesPattern, setMatchesPattern] = useState(true);
 
     // Check if the pattern contains Unicode property escapes
     const unicodePattern = pattern && pattern.includes("\\");
     const reg = new RegExp(pattern || ".*", unicodePattern ? "u" : undefined);
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         setter(value);
