@@ -62,6 +62,7 @@ def add():
         conn.close()
     # status = addRequest(firstName, lastName, phoneNumber,typeOfEmployment,income)
     response = jsonify({'status': status}) 
+    print("status ",status[0])
     response.headers.add('Access-Control-Allow-Origin', '*')    
     return response
 

@@ -34,25 +34,33 @@ function userInfo() {
 
 var dic:patternDictionary = patterns;
 
-  const saveUser = () => {
-    console.log("saveUser function")
-    const data:ClientInfo = {
-      firstName: firstName,
-      lastName: lastName,
-      phoneNumber: phoneNumber,
-      typeOfEmployment: typeOfEmployment,
-      income: income
+const saveUser = () => {
+  console.log("saveUser function");
+  const data: ClientInfo = {
+    firstName: firstName,
+    lastName: lastName,
+    phoneNumber: phoneNumber,
+    typeOfEmployment: typeOfEmployment,
+    income: income
+  };
+
+  updateUsers(data).then((response) => {
+    console.log("forum response: ", response);
+    if (response !== undefined && response === "Valid") {
+      setVisibility(true);
+      setResult("1");
+    } else {
+      setVisibility(true);
+      setResult("-1");
     }
-    updateUsers(data).then((response) => {
-      if(response != false && response != undefined){
-        setVisibility(true)
-        setResult("1")
-      }else{
-        setVisibility(false)
-        setResult("-1")
-      }
-    })
-  }
+  }).catch((error) => {
+    console.error("An error occurred:", error);
+    setVisibility(true);
+    setResult("-1");
+  });
+};
+
+  
   useEffect(() => {
     console.log("modal open")
   }, [visible]);

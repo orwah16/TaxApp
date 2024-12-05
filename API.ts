@@ -1,4 +1,3 @@
-// fetch()
 import {ClientInfo} from "./types"
 
 
@@ -7,46 +6,47 @@ const controller = new AbortController();
 
 
 export const updateUsers = async (client: ClientInfo) => {
-  console.log("Post function: user:",client.firstName)
+  console.log("Post function: user:", client.firstName);
   const options = {
+    setTimeout: 5000,
     method: "POST",
     signal: controller.signal,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
     },
-
     body: JSON.stringify({
-      first_name: client.firstName, 
-      last_name: client.lastName, 
-      phone_number: client.phoneNumber, 
+      first_name: client.firstName,
+      last_name: client.lastName,
+      phone_number: client.phoneNumber,
       type_of_employment: client.typeOfEmployment,
       income: client.income
     }),
   };
-  console.log("before fetch")
-  // const timeoutId = setTimeout(() => controller.abort(), 4000);
-  try{
-  const promise = fetch(url+'/API', options)
 
-  promise
-    .then((response) => {
-        console.log(response)
-        if (response.status === 200) {
-          console.log(response.status)
-          console.log(response.json())
-          return true;
-        // } elif (response. === "invalid") {
-        } else {
-          // throw 'Error updating clients'
-          console.log("failour")
-          return false;
-        }
-      }).then((data) => {
-          console.log(data);
-      });
-  } catch(error){
-    console.log("issue with backend")
-    return false;
-  }
-}
+  console.log("before fetch");
+
+  // Return the promise chain
+  return fetch(url + '/API', options)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(json => {
+      console.log('Response is a JSON object:', json);
+      if (json.status === "Invalid") {
+        console.log("Invalid: ", json.status);
+        return "Invalid";
+      } else {
+        console.log("Valid: ", json.status);
+        return "Valid";
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      return undefined;
+    });
+};
+

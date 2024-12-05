@@ -16,7 +16,7 @@ export const ResultModal: React.FC<ModalProps> = ({ isVisible, result, handleClo
     >
       <div
         className={`${
-          result !== "-1" ? "w-screen bg-green-500 rounded-lg p-5 flex flex-col items-center justify-center opacity-50 pb-1" : "w-screen bg-red-600 rounded-lg p-5 flex flex-col items-center justify-center"
+          result !== "-1" ? "w-screen bg-green-500 rounded-lg p-5 flex flex-col items-center justify-center opacity-50 pb-1" : "w-screen bg-red-600 rounded-lg p-5 flex flex-col items-center justify-center opacity-50"
         }`}
       >
         <button
@@ -28,8 +28,10 @@ export const ResultModal: React.FC<ModalProps> = ({ isVisible, result, handleClo
         {result !== "-1" ? (
             <span className="material-symbols-outlined text-4xl text-white"> check </span>
         ) : (
-            <span className="material-symbols-outlined text-4xl text-white"> priority_high </span>
-        )}
+          <div> 
+            <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /> 
+            <span className="material-symbols-outlined text-4xl text-white">priority_high</span> 
+          </div>        )}
         <p className="text-3xl text-white flex justify-center items-center text-center">
           {result !== "-1" ? "ההזמנה הצליחה" : "ההזמנה נכשלה"}
         </p>
