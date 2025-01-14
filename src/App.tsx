@@ -1,4 +1,4 @@
-import CustomerFeedback from "./sections/customerFeedback";
+import CustomerFeedback from "./sections/niceCustomerFeedback";
 import UserInfo from "./sections/userInfo";
 import Services from "./sections/services";
 import Welcome from "./sections/welcome";

@@ -19,9 +19,6 @@ function userInfo() {
   const [ income, setIncome ] = useState("")
   const [ visible, setVisibility] = useState(false)
   const [ result, setResult] = useState("")
-  const [ isValidNumbers, setIsValidNumbers ] = useState(true)
-  const [ isValidWords, setIsValidWords ] = useState(true)
-  const [ isValidBool, setIsValidBool ] = useState(true)
 
   type patternDictionary = {
     patterns: {

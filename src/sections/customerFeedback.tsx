@@ -2,7 +2,7 @@ import { useState } from "react";
 import { statistics, reviews } from "../constants"
 import {tax1} from "../assets/images"
 import ReviewCard from "../components/ReviewCard";
-const customerFeedback = () => {
+const niceCustomerFeedback = () => {
   const [bigReviewImg, setBigReviewImg] = useState(tax1);
 
   return (
@@ -35,4 +35,4 @@ const customerFeedback = () => {
   )
 }
 
-export default customerFeedback
+export default niceCustomerFeedback

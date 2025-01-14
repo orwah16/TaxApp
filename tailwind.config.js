@@ -3,6 +3,8 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "transform: (content) => content.replace(/taos:/g, '')",
+    "relative: true",
   ],
   theme: {
     fontSize: {
@@ -39,9 +41,23 @@ export default {
         "wide": "1440px"
       },
       animation: {
-        "error-bounce": "bounce 1s"
-      }
+        "error-bounce": "bounce 1s",
+        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+      },
+      keyframes: {
+        'infinite-scroll': {
+            from: { transform: 'translateX(0)' },
+            to: { transform: 'translateX(-100%)' },
+        }
+      } 
     },
   },
-  plugins: [],
+  plugins: [
+    require('taos/plugin')
+  ],
+  safelist: [
+    '!duration-[0ms]',
+    '!delay-[0ms]',
+    'html.js :where([class*="taos:"]:not(.taos-init))'
+  ]
 }

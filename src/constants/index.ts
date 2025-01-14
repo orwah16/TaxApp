@@ -1,5 +1,5 @@
 import { facebook, instagram, shieldTick, support, truckFast, twitter } from "../assets/icons";
-import { tax1,tax2 } from "../assets/images";
+import { conv,conv2 } from "../assets/images";
 
 export const navLinks = [
     { href: "#home", label: "דף בית" },
@@ -11,12 +11,28 @@ export const navLinks = [
 
 export const reviews = [
     {
-        thumbnail: tax1,
-        bigReview: tax1,
+        thumbnail: conv,
+        bigReview: conv,
     },
     {
-        thumbnail: tax2,
-        bigReview: tax2,
+        thumbnail: conv2,
+        bigReview: conv2,
+    },
+    {
+        thumbnail: conv,
+        bigReview: conv,
+    },
+    {
+        thumbnail: conv2,
+        bigReview: conv2,
+    },
+    {
+        thumbnail: conv,
+        bigReview: conv,
+    },
+    {
+        thumbnail: conv2,
+        bigReview: conv2,
     },
 ];
 

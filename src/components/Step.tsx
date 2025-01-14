@@ -1,6 +1,5 @@
 import {FormattedMessage} from "react-intl";
 
-
 type StepProps = {
     label: string;
 };
@@ -10,8 +9,12 @@ const Step: React.FC<StepProps> = ({label}) => {
   return (
     <div className="flex flex-col">      
     <div className="flex flex-row justify-end items-center mr-4">
+    <div className="delay-[300ms] duration-[600ms] taos:translate-x-[100%] taos:opacity-0" data-taos-offset="400">
+
       <div className="ml-2 text-lg font-bold">
         <FormattedMessage id={label} defaultMessage="خدمة العائدات الضريبية" />
+        </div>
+
       </div>
       <div className="flex items-center justify-center w-10 h-10 border rounded-full">
         <svg

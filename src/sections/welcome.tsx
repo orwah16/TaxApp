@@ -46,7 +46,7 @@ const welcome = () => {
         />
         <div className=" flex justify-end items-end flex-wrap w-full mt-20 gap-16">
           {messages.statistics.map((stat,index) => (
-            <div>
+            <div key={index}>
               <p className="font-bold font-palanquin text-4xl">{stat.value}</p>
               <p className="leading-7 font-montserrat text-slate-gray">{stat.label}</p>
             </div>
